@@ -1,6 +1,6 @@
 ﻿FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
-ENV ASPENETCORE_URLS=http://+:8080
+ENV ASPNETCORE_URLS=http://+:8080
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
@@ -10,5 +10,5 @@ RUN dotnet publish "RegaladoLibraryNowAPI/RegaladoLibraryNowAPI.csproj" -c Relea
 
 FROM base AS final
 WORKDIR /app
-COPY -from=build /app/out .
+COPY --from=build /app/out .
 ENTRYPOINT ["dotnet", "RegaladoLibraryNowAPI.dll"]
