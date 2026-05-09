@@ -44,7 +44,7 @@ namespace RegaladoLibraryNowAPI.Controllers
             });
         }
         
-        [HttpGet("[id]")]
+        [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
             var book = books.FirstOrDefault(x => x.Id == id);
