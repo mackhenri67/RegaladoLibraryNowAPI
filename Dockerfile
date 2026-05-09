@@ -11,4 +11,4 @@ RUN dotnet publish "RegaladoLibraryNowAPI.csproj" -c Release -o /app/out
 FROM base AS final
 WORKDIR /app
 COPY -from=build /app/out .
-ENTRYPOINT ["dotnet", "RegaladoLibraryNowAPI.dll"]S
+ENTRYPOINT ["dotnet", "RegaladoLibraryNowAPI.dll"]
