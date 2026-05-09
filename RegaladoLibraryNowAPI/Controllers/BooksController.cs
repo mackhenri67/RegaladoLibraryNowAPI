@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RegaladoLibraryNowAPI.Models;
 using static System.Net.WebRequestMethods;
@@ -67,19 +67,25 @@ namespace RegaladoLibraryNowAPI.Controllers
             });
         }
 
-        [HttpPut("[id]")]
+        [HttpPost]
+        
         public IActionResult Create([FromBody] Book newBook)
         {
             newBook.Id = books.Count + 1;
             books.Add(newBook);
             return CreatedAtAction(nameof(GetById),
                 new { id = newBook.Id },
-                new { status = "success",
-                data = newBook,
-                message = "Book created."});
-                         
-            }
+                new
+                {
+                    status = "success",
+                    data = newBook,
+                    message = "Book created."
+                });
 
+        }
+
+
+        [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody] Book updateBook)
         {
             var book = books.FirstOrDefault(x =>x.Id == id);
@@ -107,7 +113,7 @@ namespace RegaladoLibraryNowAPI.Controllers
     
     }
 
-        [HttpDelete("[id]")]
+        [HttpDelete("{id}")]
 
         public IActionResult Delete(int id)
         {
