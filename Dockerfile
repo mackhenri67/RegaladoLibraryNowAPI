@@ -6,7 +6,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY . .
 RUN dotnet restore "RegaladoLibraryNowAPI/RegaladoLibraryNowAPI.csproj"
-RUN dotnet publish "RegaladoLibraryNowAPI/RegaladoLibraryNowAPI.csproj" -c Release -o app/out
+RUN dotnet publish "RegaladoLibraryNowAPI/RegaladoLibraryNowAPI.csproj" -c Release -o /app/out
 
 FROM base AS final
 WORKDIR /app
