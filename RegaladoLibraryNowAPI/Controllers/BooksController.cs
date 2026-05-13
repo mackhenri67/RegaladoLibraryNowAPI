@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RegaladoLibraryNowAPI.Models;
 using static System.Net.WebRequestMethods;
+using Microsoft.Extensins.ObjectPool;
+using System.Data;
 
 namespace RegaladoLibraryNowAPI.Controllers
 {
@@ -40,7 +42,7 @@ namespace RegaladoLibraryNowAPI.Controllers
             {
                 status = "success",
                 data = books,
-                message = "books retrieved"
+                message = "books retrieved."
             });
         }
         
@@ -49,21 +51,17 @@ namespace RegaladoLibraryNowAPI.Controllers
         {
             var book = books.FirstOrDefault(x => x.Id == id);
             if (book == null)
-            {
                 return NotFound(new
                 {
                     status = "error",
                     data = (object?)null,
-                    message = "book not found"
+                    message = "book not found."
                 });
-
-            }
-
             return Ok(new
             {
                 status = "success",
                 data = books,
-                message = "books retrieved"
+                message = "books retrieved."
             });
         }
 
