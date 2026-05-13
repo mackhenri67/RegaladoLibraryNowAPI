@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RegaladoLibraryNowAPI.Models;
 using static System.Net.WebRequestMethods;
-using Microsoft.Extensins.ObjectPool;
+using Microsoft.Extensions.ObjectPool;
 using System.Data;
 
 namespace RegaladoLibraryNowAPI.Controllers
@@ -41,7 +41,7 @@ namespace RegaladoLibraryNowAPI.Controllers
             return Ok(new
             {
                 status = "success",
-                data = books,
+                data = book,
                 message = "books retrieved."
             });
         }
