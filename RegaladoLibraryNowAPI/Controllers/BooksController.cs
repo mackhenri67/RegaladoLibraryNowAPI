@@ -41,7 +41,7 @@ namespace RegaladoLibraryNowAPI.Controllers
             return Ok(new
             {
                 status = "success",
-                data = book,
+                data = books,
                 message = "books retrieved."
             });
         }
@@ -60,7 +60,7 @@ namespace RegaladoLibraryNowAPI.Controllers
             return Ok(new
             {
                 status = "success",
-                data = books,
+                data = book,
                 message = "books retrieved."
             });
         }
